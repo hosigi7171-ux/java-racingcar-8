@@ -4,10 +4,14 @@ public class RacingCar {
     private String name;
     private int forwardDistance;
 
-    public RacingCar(String testDriver) {
+    public RacingCar(String name) {
+        this.name = name;
     }
 
-    public void moveIfAtLeastFour(int i) {
+    public void moveIfAtLeastFour(int number) {
+        if(number >= 4){
+            forwardDistance++;
+        }
     }
 
     public int getForwardDistance() {
