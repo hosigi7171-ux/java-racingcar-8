@@ -18,7 +18,7 @@ public class InputValidatorTest {
 
     @Test
     void 자동차_이름이_5자_이하일때_검증() {
-        String validNames = "test1, test2";
+        String validNames = "test1,test2";
 
         assertThatCode(() -> {
             validator.validateCarNames(validNames);
@@ -27,7 +27,7 @@ public class InputValidatorTest {
 
     @Test
     void 자동차_이름이_5자_초과일때_예외_발생() {
-        String invalidNames = "test1, invalid2";
+        String invalidNames = "test1,invalid2";
 
         assertThatThrownBy(() -> {
             validator.validateCarNames(invalidNames);
@@ -43,15 +43,15 @@ public class InputValidatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"-1", "-1000"})
-    void 시도횟수가_음수일때_예외_발생(String tryCount) {
+    @ValueSource(strings = {"-1", "-1000", "+500"})
+    void 시도횟수에_부호가_있을때_예외_발생(String tryCount) {
         assertThatThrownBy(() -> {
             validator.validateTryCount(tryCount);
-        }).isInstanceOf(IllegalArgumentException.class).hasMessage("시도횟수는 음수가 될 수 없습니다");
+        }).isInstanceOf(IllegalArgumentException.class).hasMessage("시도횟수는 부호를 포함할 수 없습니다");
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"+5000", "3이아님"})
+    @ValueSource(strings = {"a5000", "3이아님"})
     void 시도횟수가_숫자가_아닐때_예외_발생(String tryCount) {
         assertThatThrownBy(() -> {
             validator.validateTryCount(tryCount);
