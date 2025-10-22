@@ -4,6 +4,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -35,5 +36,10 @@ public class InputReaderTest {
         String result = inputReader.readTryCount();
 
         assertThat(result).isEqualTo(input);
+    }
+
+    @AfterEach
+    void tearDown(){
+        System.setIn(System.in);
     }
 }
