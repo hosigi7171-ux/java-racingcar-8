@@ -27,16 +27,16 @@ public class RacingCarTest {
 
     @ParameterizedTest
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
-    void 자동차가_4이상의_숫자를_받으면_전진한다() {
-        car.moveIfAtLeastFour(4);
+    void 자동차가_4이상의_숫자를_받으면_전진한다(int forwardNumber) {
+        car.moveIfAtLeastFour(forwardNumber);
 
         assertThat(car.getForwardDistance()).isEqualTo(1);
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {0, 1, 2, 3, 4})
-    void 자동차가_4미만의_숫자를_받으면_전진하지_않는다() {
-        car.moveIfAtLeastFour(3);
+    @ValueSource(ints = {0, 1, 2, 3})
+    void 자동차가_4미만의_숫자를_받으면_전진하지_않는다(int stopNumber) {
+        car.moveIfAtLeastFour(stopNumber);
 
         assertThat(car.getForwardDistance()).isEqualTo(0);
     }
