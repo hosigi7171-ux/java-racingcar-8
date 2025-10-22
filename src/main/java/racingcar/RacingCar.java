@@ -8,6 +8,11 @@ public class RacingCar {
         this.name = name;
     }
 
+    public RacingCar(String name, int forwardDistance) {
+        this.name = name;
+        this.forwardDistance = forwardDistance;
+    }
+
     public void moveIfAtLeastFour(int number) {
         if(number >= 4){
             forwardDistance++;
