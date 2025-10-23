@@ -16,7 +16,7 @@ public class RaceDisplayTest {
     private OutputStream captor;
 
     private String output() {
-        return captor.toString().trim();
+        return captor.toString();
     }
 
     @BeforeEach
@@ -36,11 +36,14 @@ public class RaceDisplayTest {
         RaceDisplay raceDisplay = new RaceDisplay();
         raceDisplay.showRaceStatus(carList);
 
-        assertThat(output()).isEqualTo("""
-                    test1 : ---
-                    test2 : -----
-                    test3 : --
-                """);
+        String expectedResult = """
+                test1 : ---
+                test2 : -----
+                test3 : --
+                
+                """;
+
+        assertThat(output()).isEqualTo(expectedResult);
     }
 
     @AfterEach
