@@ -10,6 +10,8 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.display.ConsoleRaceDisplay;
+import racingcar.display.RaceDisplay;
 
 public class RaceDisplayTest {
     private PrintStream standardOut;
@@ -33,7 +35,7 @@ public class RaceDisplayTest {
         carList.add(new RacingCar("test2", 5));
         carList.add(new RacingCar("test3", 2));
 
-        RaceDisplay raceDisplay = new RaceDisplay();
+        RaceDisplay raceDisplay = new ConsoleRaceDisplay();
         raceDisplay.showRaceStatus(carList);
 
         String expectedResult = """
