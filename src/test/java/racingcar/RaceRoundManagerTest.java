@@ -113,11 +113,11 @@ public class RaceRoundManagerTest {
 
         /* Then */
         String consoleExpectedResult = """
-                test1 : 
-                test2 : 
-                test3 : -
-                                
-                """;
+               test1 :\s
+               test2 :\s
+               test3 : -
+               
+               """;
         // 자동차 객체 업데이트 검증
         assertThat(car1.getForwardDistance()).isEqualTo(STOP_POSITION);
         assertThat(car2.getForwardDistance()).isEqualTo(STOP_POSITION);
@@ -147,26 +147,26 @@ public class RaceRoundManagerTest {
 
         /* When */
         manager.runRace(turnCount);
-        List<RacingCar> winnerList = manager.getWinnerList();
+        List<RacingCar> winnerList = manager.findWinners();
 
         /* Then */
         String consoleExpectedResult = """
-                test1 : 
-                test2 : 
-                test3 : -
-                    
-                test1 : -
-                test2 : 
-                test3 : --
-                             
-                test1 : --
-                test2 : -
-                test3 : --
-                
-                """;
+               test1 :\s
+               test2 :\s
+               test3 : -
+               
+               test1 : -
+               test2 :\s
+               test3 : --
+               
+               test1 : --
+               test2 : -
+               test3 : --
+               
+               """;
         // 자동차 객체 업데이트 검증
         assertThat(car1.getForwardDistance()).isEqualTo(STOP_POSITION + 2);
-        assertThat(car2.getForwardDistance()).isEqualTo(STOP_POSITION);
+        assertThat(car2.getForwardDistance()).isEqualTo(STOP_POSITION + 1);
         assertThat(car3.getForwardDistance()).isEqualTo(STOP_POSITION + 2);
         // 우승자 검증
         assertThat(winnerList.getFirst().getName()).isEqualTo("test1");
