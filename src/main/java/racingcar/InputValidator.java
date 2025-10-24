@@ -18,7 +18,7 @@ public class InputValidator {
 
         // 자동차 이름이 5자 이하인지 확인
         for (String name : nameArray) {
-            if (name.length() > 5) {
+            if (name.length() > 5 || name.trim().isEmpty()) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다");
             }
         }
