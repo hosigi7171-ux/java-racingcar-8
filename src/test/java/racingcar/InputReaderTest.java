@@ -2,8 +2,10 @@ package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,7 +41,12 @@ public class InputReaderTest {
     }
 
     @AfterEach
-    void tearDown(){
+    void tearDown() throws NoSuchFieldException, IllegalAccessException {
+        // Reflection 이용해서 Console 내부 scanner 강제 초기화
+        Field scannerField = Console.class.getDeclaredField("scanner");
+        scannerField.setAccessible(true);
+        scannerField.set(null, null);
+
         System.setIn(System.in);
     }
 }
