@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.validator.ErrorMessage;
 import racingcar.validator.InputValidatorImpl;
 
 public class InputValidatorTest {
@@ -32,7 +33,7 @@ public class InputValidatorTest {
 
         assertThatThrownBy(() -> {
             validator.validateCarNames(invalidNames);
-        }).isInstanceOf(IllegalArgumentException.class).hasMessage("자동차 이름은 5자 이하여야 합니다");
+        }).isInstanceOf(IllegalArgumentException.class).hasMessage(ErrorMessage.INVALID_CAR_NAME.getText());
     }
 
     @ParameterizedTest
@@ -48,7 +49,7 @@ public class InputValidatorTest {
     void 시도횟수에_부호가_있을때_예외_발생(String tryCount) {
         assertThatThrownBy(() -> {
             validator.validateTryCount(tryCount);
-        }).isInstanceOf(IllegalArgumentException.class).hasMessage("시도횟수는 부호를 포함할 수 없습니다");
+        }).isInstanceOf(IllegalArgumentException.class).hasMessage(ErrorMessage.TRY_COUNT_WITH_SIGN.getText());
     }
 
     @ParameterizedTest
@@ -56,6 +57,6 @@ public class InputValidatorTest {
     void 시도횟수가_숫자가_아닐때_예외_발생(String tryCount) {
         assertThatThrownBy(() -> {
             validator.validateTryCount(tryCount);
-        }).isInstanceOf(IllegalArgumentException.class).hasMessage("시도횟수는 숫자여야 합니다");
+        }).isInstanceOf(IllegalArgumentException.class).hasMessage(ErrorMessage.TRY_COUNT_NOT_NUMBER.getText());
     }
 }
