@@ -2,19 +2,19 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.validator.InputValidator;
-import racingcar.service.RaceRoundManager;
-import racingcar.generator.NumberGenerator;
 import racingcar.io.InputReader;
 import racingcar.io.ResultWriter;
+import racingcar.validator.InputValidatorImpl;
+import racingcar.service.RaceRoundManagerImpl;
+import racingcar.generator.NumberGenerator;
 
 public class RacingGame {
     private final InputReader inputReader;
-    private final InputValidator inputValidator;
+    private final InputValidatorImpl inputValidator;
     private final ResultWriter resultWriter;
     private final NumberGenerator numberGenerator;
 
-    public RacingGame(InputReader inputReader, InputValidator inputValidator, ResultWriter resultWriter,
+    public RacingGame(InputReader inputReader, InputValidatorImpl inputValidator, ResultWriter resultWriter,
                       NumberGenerator numberGenerator) {
         this.inputReader = inputReader;
         this.inputValidator = inputValidator;
@@ -53,7 +53,7 @@ public class RacingGame {
         int tryCount = Integer.parseInt(tryCountInput);
 
         // 경기 진행
-        RaceRoundManager raceRoundManager = new RaceRoundManager(cars, numberGenerator);
+        RaceRoundManagerImpl raceRoundManager = new RaceRoundManagerImpl(cars, numberGenerator);
         raceRoundManager.runRace(tryCount);
 
         // 우승자 처리

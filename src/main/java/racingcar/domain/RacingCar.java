@@ -14,7 +14,7 @@ public class RacingCar {
     }
 
     public void moveIfAtLeastFour(int number) {
-        if(number >= 4){
+        if (number >= 4) {
             forwardDistance++;
         }
     }

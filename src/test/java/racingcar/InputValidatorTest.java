@@ -7,14 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.validator.InputValidator;
+import racingcar.validator.InputValidatorImpl;
 
 public class InputValidatorTest {
-    private InputValidator validator;
+    private InputValidatorImpl validator;
 
     @BeforeEach
     void 검증기_생성() {
-        validator = new InputValidator();
+        validator = new InputValidatorImpl();
     }
 
     @Test

@@ -11,9 +11,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RacingCar;
-import racingcar.io.ResultWriter;
+import racingcar.io.ConsoleResultWriter;
 
-public class ResultWriterTest {
+public class ConsoleResultWriterTest {
     private PrintStream standardOut;
     private OutputStream captor;
 
@@ -32,9 +32,9 @@ public class ResultWriterTest {
     void 단일_우승자_출력기능_검증() {
         List<RacingCar> winnerList = new ArrayList<>();
         winnerList.add(new RacingCar("test2", 5));
-        ResultWriter resultWriter = new ResultWriter();
+        ConsoleResultWriter consoleResultWriter = new ConsoleResultWriter();
 
-        resultWriter.printWinner(winnerList);
+        consoleResultWriter.printWinner(winnerList);
 
         String expectedResult = "최종 우승자 : test2";
         assertThat(output()).isEqualTo(expectedResult);
@@ -46,9 +46,9 @@ public class ResultWriterTest {
         winnerList.add(new RacingCar("test2", 5));
         winnerList.add(new RacingCar("test3", 5));
         winnerList.add(new RacingCar("test4", 5));
-        ResultWriter resultWriter = new ResultWriter();
+        ConsoleResultWriter consoleResultWriter = new ConsoleResultWriter();
 
-        resultWriter.printWinner(winnerList);
+        consoleResultWriter.printWinner(winnerList);
 
         String expectedResult = "최종 우승자 : test2, test3, test4";
         assertThat(output()).isEqualTo(expectedResult);

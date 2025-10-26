@@ -12,9 +12,9 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RacingGame;
 import racingcar.generator.NumberGenerator;
-import racingcar.io.InputReader;
-import racingcar.io.ResultWriter;
-import racingcar.validator.InputValidator;
+import racingcar.io.ConsoleInputReader;
+import racingcar.io.ConsoleResultWriter;
+import racingcar.validator.InputValidatorImpl;
 
 public class RacingGameTest {
     private PrintStream standardOut;
@@ -31,7 +31,7 @@ public class RacingGameTest {
         System.setOut(new PrintStream(captor));
     }
 
-    private class StubInputReader extends InputReader {
+    private class StubConsoleInputReader extends ConsoleInputReader {
         @Override
         public String readCarNames(){
             return "test1,test2";
@@ -43,7 +43,7 @@ public class RacingGameTest {
         }
     }
 
-    private class StubInputValidator extends InputValidator {
+    private class StubInputValidator extends InputValidatorImpl {
         @Override
         public void validateCarNames(String names){}
 
@@ -51,7 +51,7 @@ public class RacingGameTest {
         public void validateTryCount(String tryCount){}
     }
 
-    private class StubResultWriter extends ResultWriter {
+    private class StubConsoleResultWriter extends ConsoleResultWriter {
         @Override
         public void printWinner(List<RacingCar> winnerList) {
             StringBuilder stringBuilder = new StringBuilder();
@@ -80,9 +80,9 @@ public class RacingGameTest {
     @Test
     void run_메서드_기능_테스트(){
         // Given
-        StubInputReader inputReader = new StubInputReader();
+        StubConsoleInputReader inputReader = new StubConsoleInputReader();
         StubInputValidator inputValidator = new StubInputValidator();
-        StubResultWriter resultWriter = new StubResultWriter();
+        StubConsoleResultWriter resultWriter = new StubConsoleResultWriter();
         AlwaysGoGenerator numberGenerator = new AlwaysGoGenerator();
         RacingGame game = new RacingGame(inputReader, inputValidator, resultWriter, numberGenerator);
 

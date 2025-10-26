@@ -14,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RacingCar;
 import racingcar.generator.NumberGenerator;
-import racingcar.service.RaceRoundManager;
+import racingcar.service.RaceRoundManagerImpl;
 
 public class RaceRoundManagerTest {
     private PrintStream standardOut;
@@ -80,7 +80,7 @@ public class RaceRoundManagerTest {
     void 자동차_전진을_결정하는_로직_검증() {
         RacingCar car = new RacingCar("test", STOP_POSITION);
         NumberGenerator goNumberGenerator = new GoNumberGenerator();
-        RaceRoundManager manager = new RaceRoundManager(goNumberGenerator);
+        RaceRoundManagerImpl manager = new RaceRoundManagerImpl(goNumberGenerator);
 
         boolean result = manager.goOrStop(car);
 
@@ -91,7 +91,7 @@ public class RaceRoundManagerTest {
     void 자동차_정지를_결정하는_로직_검증() {
         RacingCar car = new RacingCar("test", STOP_POSITION);
         NumberGenerator stopNumberGenerator = new StopNumberGenerator();
-        RaceRoundManager manager = new RaceRoundManager(stopNumberGenerator);
+        RaceRoundManagerImpl manager = new RaceRoundManagerImpl(stopNumberGenerator);
 
         boolean result = manager.goOrStop(car);
 
@@ -108,7 +108,7 @@ public class RaceRoundManagerTest {
 
         List<Integer> numbers = Arrays.asList(STOP, STOP, MOVING_FORWARD);
         NumberGenerator generator = new SequentialNumberGenerator(numbers);
-        RaceRoundManager manager = new RaceRoundManager(carList, generator);
+        RaceRoundManagerImpl manager = new RaceRoundManagerImpl(carList, generator);
 
         /* When */
         manager.progressRound();
@@ -145,7 +145,7 @@ public class RaceRoundManagerTest {
         );
 
         NumberGenerator generator = new SequentialNumberGenerator(numbers);
-        RaceRoundManager manager = new RaceRoundManager(carList, generator);
+        RaceRoundManagerImpl manager = new RaceRoundManagerImpl(carList, generator);
 
         /* When */
         manager.runRace(turnCount);
