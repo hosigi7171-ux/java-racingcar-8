@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.io.InputReader;
 import racingcar.io.ResultWriter;
-import racingcar.validator.InputValidatorImpl;
+import racingcar.validator.InputValidator;
 import racingcar.service.RaceRoundManagerImpl;
 import racingcar.generator.NumberGenerator;
 
 public class RacingGame {
     private final InputReader inputReader;
-    private final InputValidatorImpl inputValidator;
+    private final InputValidator inputValidator;
     private final ResultWriter resultWriter;
     private final NumberGenerator numberGenerator;
 
-    public RacingGame(InputReader inputReader, InputValidatorImpl inputValidator, ResultWriter resultWriter,
+    public RacingGame(InputReader inputReader, InputValidator inputValidator, ResultWriter resultWriter,
                       NumberGenerator numberGenerator) {
         this.inputReader = inputReader;
         this.inputValidator = inputValidator;
