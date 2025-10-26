@@ -23,15 +23,7 @@ public class RacingCar {
         return forwardDistance;
     }
 
-    public void setForwardDistance(int forwardDistance) {
-        this.forwardDistance = forwardDistance;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
