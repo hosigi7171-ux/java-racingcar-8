@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class RacingCar {
-    private String name;
+    private final String name;
     private int forwardDistance;
 
     public RacingCar(String name) {
