@@ -10,15 +10,8 @@ import racingcar.generator.NumberGenerator;
 public class RaceRoundManagerImpl implements RaceRoundManager {
     private final NumberGenerator numberGenerator;
     private final RaceDisplay raceDisplay;
-    private List<RacingCar> carList;
 
     public RaceRoundManagerImpl(NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator;
-        raceDisplay = new ConsoleRaceDisplay();
-    }
-
-    public RaceRoundManagerImpl(List<RacingCar> carList, NumberGenerator numberGenerator) {
-        this.carList = carList;
         this.numberGenerator = numberGenerator;
         raceDisplay = new ConsoleRaceDisplay();
     }
@@ -29,7 +22,7 @@ public class RaceRoundManagerImpl implements RaceRoundManager {
         return generatedNumber >= 4;
     }
 
-    public List<RacingCar> findWinners() {
+    public List<RacingCar> findWinners(List<RacingCar> carList) {
         List<RacingCar> winners = new ArrayList<>();
         int maxDistance = 0;
 
@@ -47,16 +40,16 @@ public class RaceRoundManagerImpl implements RaceRoundManager {
         return winners;
     }
 
-    public void progressRound() {
+    public void progressRound(List<RacingCar> carList) {
         for (RacingCar car : carList) {
             goOrStop(car);
         }
         raceDisplay.showRaceStatus(carList);
     }
 
-    public void runRace(int turnCount) {
+    public void runRace(int turnCount, List<RacingCar> carList) {
         for (int turnIndex = 0; turnIndex < turnCount; turnIndex++) {
-            progressRound();
+            progressRound(carList);
         }
     }
 }

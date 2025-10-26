@@ -4,22 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.io.InputReader;
 import racingcar.io.ResultWriter;
+import racingcar.service.RaceRoundManager;
 import racingcar.validator.InputValidator;
-import racingcar.service.RaceRoundManagerImpl;
-import racingcar.generator.NumberGenerator;
 
 public class RacingGame {
     private final InputReader inputReader;
     private final InputValidator inputValidator;
     private final ResultWriter resultWriter;
-    private final NumberGenerator numberGenerator;
+    private final RaceRoundManager raceRoundManager;
 
-    public RacingGame(InputReader inputReader, InputValidator inputValidator, ResultWriter resultWriter,
-                      NumberGenerator numberGenerator) {
+    public RacingGame(InputReader inputReader, InputValidator inputValidator, ResultWriter resultWriter, RaceRoundManager raceRoundManager) {
         this.inputReader = inputReader;
         this.inputValidator = inputValidator;
         this.resultWriter = resultWriter;
-        this.numberGenerator = numberGenerator;
+        this.raceRoundManager = raceRoundManager;
     }
 
     /**
@@ -53,11 +51,10 @@ public class RacingGame {
         int tryCount = Integer.parseInt(tryCountInput);
 
         // 경기 진행
-        RaceRoundManagerImpl raceRoundManager = new RaceRoundManagerImpl(cars, numberGenerator);
-        raceRoundManager.runRace(tryCount);
+        raceRoundManager.runRace(tryCount, cars);
 
         // 우승자 처리
-        List<RacingCar> winners = raceRoundManager.findWinners();
+        List<RacingCar> winners = raceRoundManager.findWinners(cars);
         resultWriter.printWinner(winners);
     }
 }

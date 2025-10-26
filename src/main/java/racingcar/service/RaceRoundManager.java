@@ -15,16 +15,16 @@ public interface RaceRoundManager {
      * 우승자를 찾아주는 메서드
      * @return 우승자 리스트 반환 (동점자도 우승자로 간주)
      */
-    public List<RacingCar> findWinners();
+    public List<RacingCar> findWinners(List<RacingCar> carList);
 
     /**
      * 한 라운드의 경주를 진행한다
      */
-    public void progressRound();
+    public void progressRound(List<RacingCar> carList);
 
     /**
      * 전체 라운드의 경주를 진행한다
      * @param turnCount 진행할 시도횟수
      */
-    public void runRace(int turnCount);
+    public void runRace(int turnCount, List<RacingCar> carList);
 }

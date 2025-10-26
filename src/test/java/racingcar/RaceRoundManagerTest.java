@@ -73,10 +73,10 @@ public class RaceRoundManagerTest {
         List<Integer> numbers = Arrays.asList(STOP.getValue(), STOP.getValue(),
                 MOVING_FORWARD.getValue());
         NumberGenerator generator = new SequentialNumberGenerator(numbers);
-        RaceRoundManagerImpl manager = new RaceRoundManagerImpl(carList, generator);
+        RaceRoundManagerImpl manager = new RaceRoundManagerImpl(generator);
 
         /* When */
-        manager.progressRound();
+        manager.progressRound(carList);
 
         /* Then */
         String consoleExpectedResult = """
@@ -110,11 +110,11 @@ public class RaceRoundManagerTest {
         );
 
         NumberGenerator generator = new SequentialNumberGenerator(numbers);
-        RaceRoundManagerImpl manager = new RaceRoundManagerImpl(carList, generator);
+        RaceRoundManagerImpl manager = new RaceRoundManagerImpl(generator);
 
         /* When */
-        manager.runRace(turnCount);
-        List<RacingCar> winnerList = manager.findWinners();
+        manager.runRace(turnCount, carList);
+        List<RacingCar> winnerList = manager.findWinners(carList);
 
         /* Then */
         String consoleExpectedResult = """
