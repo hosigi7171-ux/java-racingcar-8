@@ -6,12 +6,12 @@ public interface InputValidator {
      *
      * @param names 입력받은 자동차 이름들 문자열
      */
-    public void validateCarNames(String names);
+    void validateCarNames(String names);
 
     /**
      * 입력받은 시도 횟수가 유효한 입력인지 확인하는 메서드
      *
      * @param tryCountInput 입력받은 시도 횟수 문자열
      */
-    public void validateTryCount(String tryCountInput);
+    void validateTryCount(String tryCountInput);
 }
