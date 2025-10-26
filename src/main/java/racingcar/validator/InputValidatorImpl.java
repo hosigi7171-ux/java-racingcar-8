@@ -6,10 +6,12 @@ import java.util.List;
 
 public class InputValidatorImpl implements InputValidator {
 
+    private void validateNotEmpty(String input, ErrorMessage errorMessage) {
+        if(input.isEmpty()) throw new IllegalArgumentException(errorMessage.getText());
+    }
+
     public void validateCarNames(String names) {
-        if(names.isEmpty()){
-            throw new IllegalArgumentException(ErrorMessage.EMPTY_INPUT.getText());
-        }
+        validateNotEmpty(names, ErrorMessage.EMPTY_INPUT);
 
         // 자동차 이름이 5자 이하인지 확인
         List<String> nameArray = new ArrayList<>(Arrays.asList(names.split(",")));
@@ -21,9 +23,8 @@ public class InputValidatorImpl implements InputValidator {
     }
 
     public void validateTryCount(String tryCountInput) {
-        if(tryCountInput.isEmpty()){
-            throw new IllegalArgumentException(ErrorMessage.EMPTY_INPUT.getText());
-        }
+        validateNotEmpty(tryCountInput, ErrorMessage.EMPTY_INPUT);
+
         // 음수 또는 + 부호를 붙였는지 확인
         if (tryCountInput.startsWith("+") || tryCountInput.startsWith("-")) {
             throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_WITH_SIGN.getText());
