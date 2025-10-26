@@ -19,13 +19,14 @@ public class RaceRoundManagerImpl implements RaceRoundManager {
     public boolean goOrStop(RacingCar car) {
         int generatedNumber = numberGenerator.generate();
         car.moveIfAtLeastFour(generatedNumber);
-        return generatedNumber >= 4;
+        return generatedNumber >= 4; // 테스트용으로 사용
     }
 
     public List<RacingCar> findWinners(List<RacingCar> carList) {
         List<RacingCar> winners = new ArrayList<>();
         int maxDistance = 0;
-
+        
+        // 자동차 리스트를 돌며 우승자를 찾는다
         for (RacingCar car : carList) {
             int distance = car.getForwardDistance();
             if (distance > maxDistance) {
