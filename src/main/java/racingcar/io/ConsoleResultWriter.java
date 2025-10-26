@@ -7,7 +7,7 @@ public class ConsoleResultWriter implements ResultWriter{
 
     public void printWinner(List<RacingCar> winnerList) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("최종 우승자 : ");
+        stringBuilder.append(IOMessage.OUTPUT_WINNER.getText());
 
         for (int index = 0; index < winnerList.size(); index++) {
             stringBuilder.append(winnerList.get(index).getName());

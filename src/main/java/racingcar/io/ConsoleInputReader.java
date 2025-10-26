@@ -11,7 +11,7 @@ public class ConsoleInputReader implements InputReader{
     }
 
     public String readCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(IOMessage.INPUT_CAR_NAMES.getText());
         String carNamesString = Console.readLine().trim();
 
         validator.validateCarNames(carNamesString);
@@ -20,7 +20,7 @@ public class ConsoleInputReader implements InputReader{
     }
 
     public String readTryCount() {
-        System.out.println("시도할 횟수는 몇 회인가요?");
+        System.out.println(IOMessage.INPUT_TRY_COUNT.getText());
         String tryCountString = Console.readLine().trim();
 
         validator.validateTryCount(tryCountString);
