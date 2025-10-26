@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.RacingCar;
 import racingcar.display.ConsoleRaceDisplay;
 import racingcar.display.RaceDisplay;
 import racingcar.generator.NumberGenerator;

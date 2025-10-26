@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.io;
 
 import java.util.List;
+import racingcar.domain.RacingCar;
 
 public class ResultWriter {
     /**

@@ -9,7 +9,12 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.RacingCar;
+import racingcar.domain.RacingGame;
 import racingcar.generator.NumberGenerator;
+import racingcar.io.InputReader;
+import racingcar.io.ResultWriter;
+import racingcar.validator.InputValidator;
 
 public class RacingGameTest {
     private PrintStream standardOut;
@@ -26,7 +31,7 @@ public class RacingGameTest {
         System.setOut(new PrintStream(captor));
     }
 
-    private class StubInputReader extends InputReader{
+    private class StubInputReader extends InputReader {
         @Override
         public String readCarNames(){
             return "test1,test2";
@@ -38,7 +43,7 @@ public class RacingGameTest {
         }
     }
 
-    private class StubInputValidator extends InputValidator{
+    private class StubInputValidator extends InputValidator {
         @Override
         public void validateCarNames(String names){}
 
@@ -46,7 +51,7 @@ public class RacingGameTest {
         public void validateTryCount(String tryCount){}
     }
 
-    private class StubResultWriter extends ResultWriter{
+    private class StubResultWriter extends ResultWriter {
         @Override
         public void printWinner(List<RacingCar> winnerList) {
             StringBuilder stringBuilder = new StringBuilder();

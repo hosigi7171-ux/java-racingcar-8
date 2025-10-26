@@ -1,8 +1,12 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.validator.InputValidator;
+import racingcar.service.RaceRoundManager;
 import racingcar.generator.NumberGenerator;
+import racingcar.io.InputReader;
+import racingcar.io.ResultWriter;
 
 public class RacingGame {
     private final InputReader inputReader;

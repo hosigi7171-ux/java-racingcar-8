@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.display.ConsoleRaceDisplay;
 import racingcar.display.RaceDisplay;
+import racingcar.domain.RacingCar;
 
 public class RaceDisplayTest {
     private PrintStream standardOut;

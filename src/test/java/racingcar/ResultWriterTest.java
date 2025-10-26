@@ -10,6 +10,8 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.RacingCar;
+import racingcar.io.ResultWriter;
 
 public class ResultWriterTest {
     private PrintStream standardOut;
