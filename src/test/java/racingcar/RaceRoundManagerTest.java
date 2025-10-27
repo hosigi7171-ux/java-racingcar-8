@@ -70,8 +70,7 @@ public class RaceRoundManagerTest {
         RacingCar car3 = new RacingCar("test3", STOPPED_POSITION.getValue());
         List<RacingCar> carList = new ArrayList<>(Arrays.asList(car1, car2, car3));
 
-        List<Integer> numbers = Arrays.asList(STOP.getValue(), STOP.getValue(),
-                MOVING_FORWARD.getValue());
+        List<Integer> numbers = Arrays.asList(STOP.getValue(), STOP.getValue(), MOVING_FORWARD.getValue());
         NumberGenerator generator = new SequentialNumberGenerator(numbers);
         RaceRoundManagerImpl manager = new RaceRoundManagerImpl(generator);
 
@@ -79,12 +78,12 @@ public class RaceRoundManagerTest {
         manager.progressRound(carList);
 
         /* Then */
-        String consoleExpectedResult = """
-               test1 :\s
-               test2 :\s
-               test3 : -
-               
-               """;
+        String consoleExpectedResult =
+            "test1 : \n" +
+            "test2 : \n" +
+            "test3 : -\n" +
+            "\n";
+
         // 자동차 객체 업데이트 검증
         assertThat(car1.getForwardDistance()).isEqualTo(STOPPED_POSITION.getValue());
         assertThat(car2.getForwardDistance()).isEqualTo(STOPPED_POSITION.getValue());
@@ -103,11 +102,9 @@ public class RaceRoundManagerTest {
         RacingCar car3 = new RacingCar("test3", STOPPED_POSITION.getValue());
         List<RacingCar> carList = new ArrayList<>(Arrays.asList(car1, car2, car3));
 
-        List<Integer> numbers = Arrays.asList(
-                STOP.getValue(), STOP.getValue(), MOVING_FORWARD.getValue(),
-                MOVING_FORWARD.getValue(), STOP.getValue(), MOVING_FORWARD.getValue(),
-                MOVING_FORWARD.getValue(), MOVING_FORWARD.getValue(), STOP.getValue()
-        );
+        List<Integer> numbers = Arrays.asList(STOP.getValue(), STOP.getValue(), MOVING_FORWARD.getValue(),
+                MOVING_FORWARD.getValue(), STOP.getValue(), MOVING_FORWARD.getValue(), MOVING_FORWARD.getValue(),
+                MOVING_FORWARD.getValue(), STOP.getValue());
 
         NumberGenerator generator = new SequentialNumberGenerator(numbers);
         RaceRoundManagerImpl manager = new RaceRoundManagerImpl(generator);
@@ -117,20 +114,20 @@ public class RaceRoundManagerTest {
         List<RacingCar> winnerList = manager.findWinners(carList);
 
         /* Then */
-        String consoleExpectedResult = """
-               test1 :\s
-               test2 :\s
-               test3 : -
-               
-               test1 : -
-               test2 :\s
-               test3 : --
-               
-               test1 : --
-               test2 : -
-               test3 : --
-               
-               """;
+        String consoleExpectedResult =
+            "test1 : \n" +
+            "test2 : \n" +
+            "test3 : -\n" +
+            "\n" +
+            "test1 : -\n" +
+            "test2 : \n" +
+            "test3 : --\n" +
+            "\n" +
+            "test1 : --\n" +
+            "test2 : -\n" +
+            "test3 : --\n" +
+            "\n";
+
         // 자동차 객체 업데이트 검증
         assertThat(car1.getForwardDistance()).isEqualTo(STOPPED_POSITION.getValue() + 2);
         assertThat(car2.getForwardDistance()).isEqualTo(STOPPED_POSITION.getValue() + 1);

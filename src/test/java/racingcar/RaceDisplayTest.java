@@ -39,18 +39,17 @@ public class RaceDisplayTest {
         RaceDisplay raceDisplay = new ConsoleRaceDisplay();
         raceDisplay.showRaceStatus(carList);
 
-        String expectedResult = """
-                test1 : ---
-                test2 : -----
-                test3 : --
-                
-                """;
+        String expectedResult =
+            "test1 : ---\n" +
+            "test2 : -----\n" +
+            "test3 : --\n" +
+            "\n";
 
         assertThat(output()).isEqualTo(expectedResult);
     }
 
     @AfterEach
-    void tearDown(){
+    void tearDown() {
         System.setOut(standardOut);
     }
 }
