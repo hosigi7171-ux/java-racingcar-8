@@ -5,14 +5,10 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.constants.RaceTestConstants;
 import racingcar.display.RaceDisplay;
-import racingcar.domain.RacingCar;
 import racingcar.domain.RacingGame;
 import racingcar.io.InputReader;
 import racingcar.io.ResultWriter;
@@ -45,10 +41,6 @@ public class RacingGameTest {
         InputReader inputReader = new StubConsoleInputReader();
         InputValidator inputValidator = new StubInputValidator();
         ResultWriter resultWriter = new StubConsoleResultWriter();
-
-        List<RacingCar> cars = new ArrayList<>();
-        cars.add(new RacingCar("test1", RaceTestConstants.STOPPED_POSITION.getValue()));
-        cars.add(new RacingCar("test2", RaceTestConstants.STOPPED_POSITION.getValue()));
 
         RaceDisplay raceDisplay = new StubRaceDisplay();
         RaceRoundManager raceRoundManager = new StubRaceRoundManager(raceDisplay);
