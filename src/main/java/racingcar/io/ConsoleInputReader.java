@@ -1,10 +1,11 @@
 package racingcar.io;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.validator.InputValidator;
 import racingcar.validator.InputValidatorImpl;
 
 public class ConsoleInputReader implements InputReader{
-    private final InputValidatorImpl validator;
+    private final InputValidator validator;
 
     public ConsoleInputReader() {
         validator = new InputValidatorImpl();

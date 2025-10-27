@@ -5,6 +5,7 @@ import racingcar.io.InputReader;
 import racingcar.io.ResultWriter;
 import racingcar.service.RaceRoundManager;
 import racingcar.service.RaceRoundManagerImpl;
+import racingcar.validator.InputValidator;
 import racingcar.validator.InputValidatorImpl;
 import racingcar.domain.RacingGame;
 import racingcar.io.ConsoleResultWriter;
@@ -15,7 +16,7 @@ public class AppConfig {
         return new ConsoleInputReader();
     }
 
-    public InputValidatorImpl inputValidator() {
+    public InputValidator inputValidator() {
         return new InputValidatorImpl();
     }
 
