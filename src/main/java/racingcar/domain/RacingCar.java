@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constants.CommonConstants.MOVE_THRESHOLD;
+
 public class RacingCar {
     private final String name;
     private int forwardDistance;
@@ -14,7 +16,7 @@ public class RacingCar {
     }
 
     public void moveIfAtLeastFour(int number) {
-        if (number >= 4) {
+        if (number >= MOVE_THRESHOLD) {
             forwardDistance++;
         }
     }

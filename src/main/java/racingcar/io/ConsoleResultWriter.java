@@ -1,5 +1,7 @@
 package racingcar.io;
 
+import static racingcar.constants.CommonConstants.DELIMITER;
+
 import java.util.List;
 import racingcar.domain.RacingCar;
 
@@ -13,7 +15,7 @@ public class ConsoleResultWriter implements ResultWriter{
             stringBuilder.append(winnerList.get(index).getName());
 
             if (index != winnerList.size() - 1) {
-                stringBuilder.append(", ");
+                stringBuilder.append(DELIMITER).append(" ");
             }
         }
 
