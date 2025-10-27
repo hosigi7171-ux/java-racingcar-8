@@ -14,9 +14,8 @@ public class StubRaceRoundManager implements RaceRoundManager {
     }
 
     @Override
-    public boolean goOrStop(RacingCar car) {
+    public void goOrStop(RacingCar car) {
         car.moveIfAtLeastFour(RaceTestConstants.MOVING_FORWARD.getValue());
-        return true;
     }
 
     @Override

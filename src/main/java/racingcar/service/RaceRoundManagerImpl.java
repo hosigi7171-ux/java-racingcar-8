@@ -16,10 +16,9 @@ public class RaceRoundManagerImpl implements RaceRoundManager {
         raceDisplay = new ConsoleRaceDisplay();
     }
 
-    public boolean goOrStop(RacingCar car) {
+    public void goOrStop(RacingCar car) {
         int generatedNumber = numberGenerator.generate();
         car.moveIfAtLeastFour(generatedNumber);
-        return generatedNumber >= 4; // 테스트용으로 사용
     }
 
     public List<RacingCar> findWinners(List<RacingCar> carList) {

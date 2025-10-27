@@ -8,9 +8,8 @@ public interface RaceRoundManager {
      * 자동차를 전진 또는 정지 시킨다
      *
      * @param car 전진 또는 정지시킬 자동차
-     * @return 전진시 true 리턴, 정지시 false 리턴 (테스트용)
      */
-    boolean goOrStop(RacingCar car);
+    void goOrStop(RacingCar car);
 
     /**
      * 우승자를 찾아주는 메서드

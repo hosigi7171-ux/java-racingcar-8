@@ -46,9 +46,9 @@ public class RaceRoundManagerTest {
         NumberGenerator goNumberGenerator = new AlwaysGoGenerator();
         RaceRoundManager manager = new RaceRoundManagerImpl(goNumberGenerator);
 
-        boolean result = manager.goOrStop(car);
+        manager.goOrStop(car);
 
-        assertThat(result).isEqualTo(true);
+        assertThat(car.getForwardDistance()).isEqualTo(MOVED_POSITION.getValue());
     }
 
     @Test
@@ -57,9 +57,9 @@ public class RaceRoundManagerTest {
         NumberGenerator stopNumberGenerator = new StopNumberGenerator();
         RaceRoundManagerImpl manager = new RaceRoundManagerImpl(stopNumberGenerator);
 
-        boolean result = manager.goOrStop(car);
+        manager.goOrStop(car);
 
-        assertThat(result).isEqualTo(false);
+        assertThat(car.getForwardDistance()).isEqualTo(STOPPED_POSITION.getValue());
     }
 
     @Test
